@@ -9,19 +9,36 @@ function checkPassword() {
     }
 }
 
-// Love Countdown Timer
-const eventDate = new Date("2024-04-20").getTime();
-setInterval(() => {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+// Countdown Timers
+function updateCountdown() {
+    const today = new Date().getTime();
     
-    if (distance < 0) {
-        document.getElementById("countdown").innerText = "Today is our special day! 🎉❤️";
-    } else {
-        document.getElementById("countdown").innerText = `${days} days left until our first date anniversary! 💖`;
+    // First Date Anniversary (April 20)
+    const firstDate = new Date("2024-04-20").getTime();
+    const timeUntilFirstDate = firstDate - today;
+    const daysFirstDate = Math.floor(timeUntilFirstDate / (1000 * 60 * 60 * 24));
+
+    // Adunni's Birthday (May 19)
+    const birthday = new Date("2024-05-19").getTime();
+    const timeUntilBirthday = birthday - today;
+    const daysBirthday = Math.floor(timeUntilBirthday / (1000 * 60 * 60 * 24));
+
+    // Update Countdown Display
+    document.getElementById("countdown").innerHTML = `
+        🎉 First Date Anniversary: ${daysFirstDate} days left! 💖 <br>
+        🎂 Adunni's Birthday: ${daysBirthday} days left! 🎁
+    `;
+
+    // If it's today
+    if (timeUntilFirstDate < 0) {
+        document.getElementById("countdown").innerHTML = "💖 Today is our First Date Anniversary! Let's celebrate! 🎉";
     }
-}, 1000);
+    if (timeUntilBirthday < 0) {
+        document.getElementById("countdown").innerHTML = "🎂 Happy Birthday, Adunni! I love you! 🎁💖";
+    }
+}
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Run Immediately
 
 // Love Chat System
 function sendMessage() {
@@ -53,11 +70,11 @@ function revealLetter() {
     document.getElementById("loveLetter").style.display = "block";
 }
 
-// Love Quiz System
+// Updated Love Quiz Questions
 const quizQuestions = [
-    { question: "What was our first date location?", answer: "beach" },
-    { question: "What is my favorite food?", answer: "pizza" },
-    { question: "What color do I love the most?", answer: "red" }
+    { question: "What nickname do I call you the most?", answer: "baby" },
+    { question: "What’s something we both love to do together?", answer: "watch movies" },
+    { question: "What food do we both love?", answer: "pizza" }
 ];
 
 const selectedQuiz = quizQuestions[Math.floor(Math.random() * quizQuestions.length)];
