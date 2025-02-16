@@ -62,66 +62,38 @@ function formatTime(ms) {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// Love Chat System with Notification
+// Love Chat System with Local Storage (Cross-Browser Messaging)
 function sendMessage() {
     const chatbox = document.getElementById("chatbox");
     const message = document.getElementById("chatInput").value.trim();
     
     if (message) {
-        const messageBubble = document.createElement("div");
-        messageBubble.classList.add("chat-bubble");
-        messageBubble.innerHTML = `<b>You:</b> ${message}`;
-        chatbox.appendChild(messageBubble);
-        document.getElementById("chatInput").value = "";
-        chatbox.scrollTop = chatbox.scrollHeight;
-        
+        const messages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+        messages.push({ sender: "You", text: message });
+        localStorage.setItem("chatMessages", JSON.stringify(messages));
+        updateChat();
         sendNotification("New Love Message ❤️", "Adunni sent you a new message!");
     }
 }
+
+function updateChat() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.innerHTML = "";
+    const messages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+    
+    messages.forEach(msg => {
+        const messageBubble = document.createElement("div");
+        messageBubble.classList.add("chat-bubble");
+        messageBubble.innerHTML = `<b>${msg.sender}:</b> ${msg.text}`;
+        chatbox.appendChild(messageBubble);
+    });
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+setInterval(updateChat, 2000); // Auto-update chat every 2 seconds
+updateChat();
 
 function sendNotification(title, message) {
     if ("Notification" in window && Notification.permission === "granted") {
         new Notification(title, { body: message, icon: "media/images/love_icon.png" });
     }
 }
-
-// Love Letters
-const loveLetters = [
-    "You are my everything, my heart, my soul. I love you more every day! ❤️",
-    "Every second with you is a blessing. My love for you is endless. 💖",
-    "You are the best thing that ever happened to me. Forever yours. 💞"
-];
-function revealLetter() {
-    document.getElementById("loveLetter").innerText = loveLetters[Math.floor(Math.random() * loveLetters.length)];
-    document.getElementById("loveLetter").style.display = "block";
-}
-
-// Love Quiz
-const quizQuestions = [
-    { question: "What nickname do I call you the most?", answer: "baby" },
-    { question: "What’s something we both love to do together?", answer: "watch movies" },
-    { question: "What food do we both love?", answer: "pizza" }
-];
-const selectedQuiz = quizQuestions[Math.floor(Math.random() * quizQuestions.length)];
-document.getElementById("quizQuestion").innerText = selectedQuiz.question;
-
-function checkQuiz() {
-    const answer = document.getElementById("quizInput").value.trim().toLowerCase();
-    if (answer === selectedQuiz.answer) {
-        document.getElementById("quizResult").innerText = "Correct! ❤️";
-    } else {
-        document.getElementById("quizResult").innerText = "Oops! Try again. 💔";
-    }
-}
-
-// Floating Hearts Animation
-setInterval(() => {
-    const heart = document.createElement("div");
-    heart.classList.add("floating-heart");
-    heart.innerText = "💖";
-    heart.style.left = `${Math.random() * 100}vw`;
-    document.body.appendChild(heart);
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
-}, 800);
