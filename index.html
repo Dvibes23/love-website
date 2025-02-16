@@ -25,56 +25,75 @@
         <p id="errorMsg" style="color: red;"></p>
     </div>
 
-    <!-- Main Content (Hidden until password is correct) -->
-    <div id="mainContent" class="container hidden">
-        <h1>Ola & Adunni's Love Forever ❤️</h1>
+    <!-- Main Navigation -->
+    <nav id="navMenu" class="hidden">
+        <a href="home.html">Home</a>
+        <a href="chat.html">Love Chat</a>
+        <a href="letters.html">Love Letters</a>
+        <a href="quiz.html">Love Quiz</a>
+        <a href="album.html">Memory Album</a>
+        <a href="videos.html">Videos</a>
+    </nav>
 
-        <!-- Love Countdown -->
+    <!-- Home Page -->
+    <div id="homePage" class="container hidden">
+        <h1>Ola & Adunni's Love Forever ❤️</h1>
         <h2>Next Special Events</h2>
         <div id="countdown"></div>
+    </div>
 
-        <!-- Private Love Chat -->
+    <!-- Love Chat Page -->
+    <div id="chatPage" class="container hidden">
         <h2>Private Love Chat 💬</h2>
         <div id="chatbox"></div>
         <input type="text" id="chatInput" placeholder="Type a message...">
         <button onclick="sendMessage()">Send ❤️</button>
+    </div>
 
-        <!-- Secret Love Letters -->
+    <!-- Secret Love Letters Page -->
+    <div id="lettersPage" class="container hidden">
         <h2>Secret Love Letters 💌</h2>
         <button onclick="revealLetter()">Open Love Letter</button>
         <p id="loveLetter" class="hidden"></p>
+    </div>
 
-        <!-- Love Quiz -->
+    <!-- Love Quiz Page -->
+    <div id="quizPage" class="container hidden">
         <h2>Love Quiz 🎮</h2>
         <p id="quizQuestion"></p>
         <input type="text" id="quizInput" placeholder="Enter your answer">
         <button onclick="checkQuiz()">Submit</button>
         <p id="quizResult"></p>
+    </div>
 
-        <!-- Love Memory Album -->
+    <!-- Memory Album Page -->
+    <div id="albumPage" class="container hidden">
         <h2>Memory Album 📸</h2>
         <div class="gallery">
-            <img src="media/img1.jpg" alt="Memory 1">
-            <img src="media/img2.jpg" alt="Memory 2">
-            <img src="media/img3.jpg" alt="Memory 3">
-            <img src="media/img4.jpg" alt="Memory 4">
-            <img src="media/img5.jpg" alt="Memory 5">
-            <img src="media/img6.jpg" alt="Memory 6">
-            <img src="media/img7.jpg" alt="Memory 7">
-            <img src="media/img8.jpg" alt="Memory 8">
-            <img src="media/img9.jpg" alt="Memory 9">
-            <img src="media/img10.jpg" alt="Memory 10">
+            <img src="media/images/img1.jpg" alt="Memory 1">
+            <img src="media/images/img2.jpg" alt="Memory 2">
+            <img src="media/images/img3.jpg" alt="Memory 3">
+            <img src="media/images/img4.jpg" alt="Memory 4">
+            <img src="media/images/img5.jpg" alt="Memory 5">
+            <img src="media/images/img6.jpg" alt="Memory 6">
+            <img src="media/images/img7.jpg" alt="Memory 7">
+            <img src="media/images/img8.jpg" alt="Memory 8">
+            <img src="media/images/img9.jpg" alt="Memory 9">
+            <img src="media/images/img10.jpg" alt="Memory 10">
         </div>
+    </div>
 
-        <!-- Love Videos -->
+    <!-- Love Videos Page -->
+    <div id="videosPage" class="container hidden">
         <h2>Special Moments 🎥</h2>
         <div class="video-gallery">
-            <video src="media/video1.mp4" autoplay muted loop playsinline></video>
-            <video src="media/video2.mp4" autoplay muted loop playsinline></video>
-            <video src="media/video3.mp4" autoplay muted loop playsinline></video>
+            <video src="media/videos/video1.mp4" autoplay muted loop playsinline></video>
+            <video src="media/videos/video2.mp4" autoplay muted loop playsinline></video>
+            <video src="media/videos/video3.mp4" autoplay muted loop playsinline></video>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
