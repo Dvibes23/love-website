@@ -1,5 +1,6 @@
+/* General Page Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
     background: linear-gradient(to right, #ff758c, #ff7eb3);
     padding: 20px;
@@ -23,16 +24,40 @@ body {
     100% { transform: translateY(-100px); opacity: 0; }
 }
 
+/* Buttons */
+button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #e60073;
+    transform: scale(1.1);
+}
+
 /* Memory Gallery */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 .gallery img {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
+    width: 120px;
+    height: 120px;
     border-radius: 10px;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
     transition: transform 0.5s;
 }
 
 .gallery img:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
