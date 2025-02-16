@@ -1,3 +1,12 @@
+// Request Notification Permission
+if ("Notification" in window) {
+    Notification.requestPermission().then(permission => {
+        if (permission !== "granted") {
+            console.log("Notifications denied by user");
+        }
+    });
+}
+
 // Surprise Popup (First Visit Only)
 if (!localStorage.getItem("visited")) {
     document.getElementById("surprisePopup").style.display = "block";
@@ -12,10 +21,20 @@ function checkPassword() {
     const password = document.getElementById("passwordInput").value;
     if (password === "OlaMi&AdunniMi-Love") {
         document.getElementById("passwordScreen").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
+        document.getElementById("navMenu").style.display = "block";
+        document.getElementById("homePage").style.display = "block";
     } else {
         document.getElementById("errorMsg").innerText = "Incorrect password! Try again.";
     }
+}
+
+// Page Navigation Handling
+const pages = ["homePage", "chatPage", "lettersPage", "quizPage", "albumPage", "videosPage"];
+function showPage(pageId) {
+    pages.forEach(page => {
+        document.getElementById(page).style.display = "none";
+    });
+    document.getElementById(pageId).style.display = "block";
 }
 
 // Countdown Timer
@@ -32,7 +51,6 @@ function updateCountdown() {
         🎂 Adunni's Birthday: ${formatTime(birthdayCountdown)} left!
     `;
 }
-
 function formatTime(ms) {
     const days = Math.floor(ms / (1000 * 60 * 60 * 24));
     const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -43,7 +61,7 @@ function formatTime(ms) {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// Love Chat System
+// Love Chat System with Notification
 function sendMessage() {
     const chatbox = document.getElementById("chatbox");
     const message = document.getElementById("chatInput").value.trim();
@@ -52,10 +70,17 @@ function sendMessage() {
         const messageBubble = document.createElement("div");
         messageBubble.classList.add("chat-bubble");
         messageBubble.innerHTML = `<b>You:</b> ${message}`;
-        
         chatbox.appendChild(messageBubble);
         document.getElementById("chatInput").value = "";
         chatbox.scrollTop = chatbox.scrollHeight;
+        
+        sendNotification("New Love Message ❤️", "Adunni sent you a new message!");
+    }
+}
+
+function sendNotification(title, message) {
+    if ("Notification" in window && Notification.permission === "granted") {
+        new Notification(title, { body: message, icon: "media/images/love_icon.png" });
     }
 }
 
@@ -65,7 +90,6 @@ const loveLetters = [
     "Every second with you is a blessing. My love for you is endless. 💖",
     "You are the best thing that ever happened to me. Forever yours. 💞"
 ];
-
 function revealLetter() {
     document.getElementById("loveLetter").innerText = loveLetters[Math.floor(Math.random() * loveLetters.length)];
     document.getElementById("loveLetter").style.display = "block";
@@ -77,13 +101,11 @@ const quizQuestions = [
     { question: "What’s something we both love to do together?", answer: "watch movies" },
     { question: "What food do we both love?", answer: "pizza" }
 ];
-
 const selectedQuiz = quizQuestions[Math.floor(Math.random() * quizQuestions.length)];
 document.getElementById("quizQuestion").innerText = selectedQuiz.question;
 
 function checkQuiz() {
     const answer = document.getElementById("quizInput").value.trim().toLowerCase();
-    
     if (answer === selectedQuiz.answer) {
         document.getElementById("quizResult").innerText = "Correct! ❤️";
     } else {
