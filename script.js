@@ -37,14 +37,14 @@ function showPage(pageId) {
     document.getElementById(pageId).style.display = "block";
 }
 
-// Countdown Timer
+// Countdown Timer Fix
 function updateCountdown() {
-    const firstDate = new Date("2024-04-20T18:00:00").getTime();
-    const birthday = new Date("2024-05-19T00:00:00").getTime();
+    const firstDate = new Date("April 20, 2025 00:00:00").getTime();
+    const birthday = new Date("May 19, 2025 00:00:00").getTime();
     const now = new Date().getTime();
     
-    const firstDateCountdown = firstDate - now;
-    const birthdayCountdown = birthday - now;
+    let firstDateCountdown = firstDate - now;
+    let birthdayCountdown = birthday - now;
     
     document.getElementById("countdown").innerHTML = `
         🎉 First Date: ${formatTime(firstDateCountdown)} left! <br>
@@ -52,7 +52,7 @@ function updateCountdown() {
     `;
 }
 function formatTime(ms) {
-    if (ms <= 0) return "🎉 Happening now! 🎉";
+    if (ms <= 0) return "🎉 Happening today! 🎉";
     const days = Math.floor(ms / (1000 * 60 * 60 * 24));
     const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
@@ -125,4 +125,3 @@ setInterval(() => {
         heart.remove();
     }, 5000);
 }, 800);
-        
