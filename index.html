@@ -27,12 +27,12 @@
 
     <!-- Main Navigation -->
     <nav id="navMenu" class="hidden">
-        <a href="home.html">Home</a>
-        <a href="chat.html">Love Chat</a>
-        <a href="letters.html">Love Letters</a>
-        <a href="quiz.html">Love Quiz</a>
-        <a href="album.html">Memory Album</a>
-        <a href="videos.html">Videos</a>
+        <a href="#" onclick="showPage('homePage')">Home</a>
+        <a href="#" onclick="showPage('chatPage')">Love Chat</a>
+        <a href="#" onclick="showPage('lettersPage')">Love Letters</a>
+        <a href="#" onclick="showPage('quizPage')">Love Quiz</a>
+        <a href="#" onclick="showPage('albumPage')">Memory Album</a>
+        <a href="#" onclick="showPage('videosPage')">Videos</a>
     </nav>
 
     <!-- Home Page -->
@@ -42,7 +42,7 @@
         <div id="countdown"></div>
     </div>
 
-    <!-- Love Chat Page -->
+    <!-- Love Chat Section -->
     <div id="chatPage" class="container hidden">
         <h2>Private Love Chat 💬</h2>
         <div id="chatbox"></div>
@@ -50,14 +50,14 @@
         <button onclick="sendMessage()">Send ❤️</button>
     </div>
 
-    <!-- Secret Love Letters Page -->
+    <!-- Secret Love Letters Section -->
     <div id="lettersPage" class="container hidden">
         <h2>Secret Love Letters 💌</h2>
         <button onclick="revealLetter()">Open Love Letter</button>
         <p id="loveLetter" class="hidden"></p>
     </div>
 
-    <!-- Love Quiz Page -->
+    <!-- Love Quiz Section -->
     <div id="quizPage" class="container hidden">
         <h2>Love Quiz 🎮</h2>
         <p id="quizQuestion"></p>
@@ -66,7 +66,7 @@
         <p id="quizResult"></p>
     </div>
 
-    <!-- Memory Album Page -->
+    <!-- Memory Album Section -->
     <div id="albumPage" class="container hidden">
         <h2>Memory Album 📸</h2>
         <div class="gallery">
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <!-- Love Videos Page -->
+    <!-- Love Videos Section -->
     <div id="videosPage" class="container hidden">
         <h2>Special Moments 🎥</h2>
         <div class="video-gallery">
@@ -96,4 +96,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
