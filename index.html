@@ -3,31 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love, Adunni ❤️</title>
+    <title>Ola & Adunni Forever ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>For My Love, Adunni ❤️</h1>
-        
-        <!-- Love Letter Section -->
-        <p id="loveLetter">Loading a special message...</p>
+    <!-- Floating Hearts Animation -->
+    <div class="floating-hearts"></div>
 
-        <!-- Countdown Timer -->
-        <h2>Countdown to Our Special Day:</h2>
+    <!-- Password Protection Screen -->
+    <div id="passwordScreen">
+        <h2>Enter Password to Access Our Love Story ❤️</h2>
+        <input type="password" id="passwordInput" placeholder="Enter Password">
+        <button onclick="checkPassword()">Unlock Love 💖</button>
+        <p id="errorMsg" style="color: red;"></p>
+    </div>
+
+    <!-- Main Content (Hidden until password is correct) -->
+    <div id="mainContent" style="display: none;">
+        <h1>Ola & Adunni's Love Forever ❤️</h1>
+
+        <!-- Love Countdown -->
+        <h2>Next Special Event: First Date Anniversary</h2>
         <p id="countdown"></p>
 
-        <!-- Photo Gallery -->
-        <h2>Our Beautiful Moments</h2>
+        <!-- Love Chat -->
+        <h2>Private Love Chat 💬</h2>
+        <div id="chatbox"></div>
+        <input type="text" id="chatInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send ❤️</button>
+
+        <!-- Love Letters -->
+        <h2>Secret Love Letters 💌</h2>
+        <button onclick="revealLetter()">Open Love Letter</button>
+        <p id="loveLetter" style="display: none;"></p>
+
+        <!-- Love Quiz -->
+        <h2>Love Quiz 🎮</h2>
+        <p id="quizQuestion"></p>
+        <input type="text" id="quizInput" placeholder="Enter your answer">
+        <button onclick="checkQuiz()">Submit</button>
+        <p id="quizResult"></p>
+
+        <!-- Love Memory Album -->
+        <h2>Memory Album 📸</h2>
         <div class="gallery">
-            <img src="img1.jpg" alt="Our Moment 1">
-            <img src="img2.jpg" alt="Our Moment 2">
-            <img src="img3.jpg" alt="Our Moment 3">
+            <img src="images/img1.jpg" alt="Memory 1">
+            <img src="images/img2.jpg" alt="Memory 2">
+            <img src="images/img3.jpg" alt="Memory 3">
         </div>
 
-        <!-- Hidden Music Button -->
-        <button id="hiddenButton">Press This 💖</button>
-        <audio id="loveSong" src="song.mp3"></audio>
+        <!-- Love Song -->
+        <button onclick="playSong()">Press to Play Our Song 🎶</button>
+        <audio id="loveSong" src="love_song.mp3"></audio>
     </div>
 
     <script src="script.js"></script>
