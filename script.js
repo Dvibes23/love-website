@@ -22,7 +22,7 @@ function checkPassword() {
     if (password === "OlaMi&AdunniMi-Love") {
         document.getElementById("passwordScreen").style.display = "none";
         document.getElementById("navMenu").style.display = "block";
-        document.getElementById("homePage").style.display = "block";
+        showPage("homePage");
     } else {
         document.getElementById("errorMsg").innerText = "Incorrect password! Try again.";
     }
@@ -43,8 +43,8 @@ function updateCountdown() {
     const birthday = new Date("2024-05-19T00:00:00").getTime();
     const now = new Date().getTime();
     
-    const firstDateCountdown = Math.max(0, firstDate - now);
-    const birthdayCountdown = Math.max(0, birthday - now);
+    const firstDateCountdown = firstDate - now;
+    const birthdayCountdown = birthday - now;
     
     document.getElementById("countdown").innerHTML = `
         🎉 First Date: ${formatTime(firstDateCountdown)} left! <br>
@@ -52,6 +52,7 @@ function updateCountdown() {
     `;
 }
 function formatTime(ms) {
+    if (ms <= 0) return "🎉 Happening now! 🎉";
     const days = Math.floor(ms / (1000 * 60 * 60 * 24));
     const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
@@ -124,3 +125,4 @@ setInterval(() => {
         heart.remove();
     }, 5000);
 }, 800);
+        
