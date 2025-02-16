@@ -7,27 +7,37 @@ body {
     color: white;
 }
 
-/* Main Content Box */
+/* Main Content */
 .container {
     width: 80%;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     color: black;
 }
 
-/* Countdown Section */
+/* Countdown */
 #countdown {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
-    color: #d63384;
-    padding: 10px;
-    background: #ffe4e1;
+    color: white;
+    background: #ff4081;
+    padding: 15px;
     border-radius: 8px;
     margin-bottom: 15px;
+}
+
+/* Password Input */
+#passwordInput {
+    padding: 10px;
+    font-size: 16px;
+    width: 60%;
+    border-radius: 8px;
+    border: 2px solid #ff4081;
+    text-align: center;
 }
 
 /* Chat Box */
@@ -80,50 +90,59 @@ button:hover {
     margin: 10px;
 }
 
-/* Memory Gallery */
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
+/* Image Gallery */
 .gallery img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
-    transition: transform 0.5s;
-    object-fit: cover;
+    margin: 5px;
+    transition: transform 0.3s;
 }
-
 .gallery img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
-/* Floating Hearts */
-.floating-hearts {
+/* Video Gallery */
+.video-gallery video {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* Surprise Popup */
+#surprisePopup {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    overflow: hidden;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding-top: 200px;
+    z-index: 999;
 }
 
-.floating-hearts::after {
-    content: "💖 💕 💘 💓";
-    font-size: 20px;
-    animation: floatHearts 8s infinite;
+.hidden {
+    display: none;
+}
+
+/* Floating Hearts */
+.floating-heart {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    opacity: 0.7;
+    font-size: 25px;
+    animation: floatHeart 5s linear infinite;
 }
 
-@keyframes floatHearts {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-50px); opacity: 0.5; }
-    100% { transform: translateY(-100px); opacity: 0; }
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
 }
