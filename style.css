@@ -1,46 +1,38 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
     padding: 20px;
+    color: white;
 }
 
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Floating Hearts Animation */
+.floating-hearts::after {
+    content: "💖 💕 💘 💓";
+    font-size: 20px;
+    animation: floatHearts 5s infinite;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    opacity: 0.7;
 }
 
-h1, h2 {
-    color: #d63384;
+@keyframes floatHearts {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-50px); opacity: 0.5; }
+    100% { transform: translateY(-100px); opacity: 0; }
 }
 
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
+/* Memory Gallery */
 .gallery img {
     width: 100px;
     height: 100px;
+    margin: 5px;
     border-radius: 10px;
-    object-fit: cover;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    transition: transform 0.5s;
 }
 
-button {
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-button:hover {
-    background-color: #e60073;
+.gallery img:hover {
+    transform: scale(1.1);
 }
