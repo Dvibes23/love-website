@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Floating Hearts Animation -->
     <div class="floating-hearts"></div>
+
+    <!-- Surprise Popup (First Visit Only) -->
+    <div id="surprisePopup" class="hidden">
+        <h1>🎉 Surprise for My Love! 🎉</h1>
+        <p>My dearest Adunni, you are my world. I love you forever! 💖</p>
+        <button onclick="closeSurprise()">Click to Continue 💕</button>
+    </div>
 
     <!-- Password Protection Screen -->
     <div id="passwordScreen">
@@ -20,23 +26,23 @@
     </div>
 
     <!-- Main Content (Hidden until password is correct) -->
-    <div id="mainContent" class="container" style="display: none;">
+    <div id="mainContent" class="container hidden">
         <h1>Ola & Adunni's Love Forever ❤️</h1>
 
         <!-- Love Countdown -->
         <h2>Next Special Events</h2>
-        <p id="countdown"></p>
+        <div id="countdown"></div>
 
-        <!-- Love Chat -->
+        <!-- Private Love Chat -->
         <h2>Private Love Chat 💬</h2>
         <div id="chatbox"></div>
         <input type="text" id="chatInput" placeholder="Type a message...">
         <button onclick="sendMessage()">Send ❤️</button>
 
-        <!-- Love Letters -->
+        <!-- Secret Love Letters -->
         <h2>Secret Love Letters 💌</h2>
         <button onclick="revealLetter()">Open Love Letter</button>
-        <p id="loveLetter" style="display: none;"></p>
+        <p id="loveLetter" class="hidden"></p>
 
         <!-- Love Quiz -->
         <h2>Love Quiz 🎮</h2>
@@ -48,14 +54,25 @@
         <!-- Love Memory Album -->
         <h2>Memory Album 📸</h2>
         <div class="gallery">
-            <img src="images/img1.jpg" alt="Memory 1">
-            <img src="images/img2.jpg" alt="Memory 2">
-            <img src="images/img3.jpg" alt="Memory 3">
+            <img src="media/img1.jpg" alt="Memory 1">
+            <img src="media/img2.jpg" alt="Memory 2">
+            <img src="media/img3.jpg" alt="Memory 3">
+            <img src="media/img4.jpg" alt="Memory 4">
+            <img src="media/img5.jpg" alt="Memory 5">
+            <img src="media/img6.jpg" alt="Memory 6">
+            <img src="media/img7.jpg" alt="Memory 7">
+            <img src="media/img8.jpg" alt="Memory 8">
+            <img src="media/img9.jpg" alt="Memory 9">
+            <img src="media/img10.jpg" alt="Memory 10">
         </div>
 
-        <!-- Love Song -->
-        <button onclick="playSong()">Press to Play Our Song 🎶</button>
-        <audio id="loveSong" src="love_song.mp3"></audio>
+        <!-- Love Videos -->
+        <h2>Special Moments 🎥</h2>
+        <div class="video-gallery">
+            <video src="media/video1.mp4" autoplay muted loop playsinline></video>
+            <video src="media/video2.mp4" autoplay muted loop playsinline></video>
+            <video src="media/video3.mp4" autoplay muted loop playsinline></video>
+        </div>
     </div>
 
     <script src="script.js"></script>
