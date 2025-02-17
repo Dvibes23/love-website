@@ -3,96 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ola & Adunni Forever ❤️</title>
+    <title>Ola & Adunni's Love Forever</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Floating Hearts Animation -->
-    <div class="floating-hearts"></div>
-
-    <!-- Surprise Popup (First Visit Only) -->
-    <div id="surprisePopup" class="hidden">
-        <h1>🎉 Surprise for My Love! 🎉</h1>
-        <p>My dearest Adunni, you are my world. I love you forever! 💖</p>
-        <button onclick="closeSurprise()">Click to Continue 💕</button>
-    </div>
-
-    <!-- Password Protection Screen -->
+    <!-- Password Screen -->
     <div id="passwordScreen">
         <h2>Enter Password to Access Our Love Story ❤️</h2>
         <input type="password" id="passwordInput" placeholder="Enter Password">
         <button onclick="checkPassword()">Unlock Love 💖</button>
-        <p id="errorMsg" style="color: red;"></p>
+        <p id="errorMsg"></p>
     </div>
-
-    <!-- Main Navigation -->
-    <nav id="navMenu" class="hidden">
-        <a href="#" onclick="showPage('homePage')">Home</a>
-        <a href="#" onclick="showPage('chatPage')">Love Chat</a>
-        <a href="#" onclick="showPage('lettersPage')">Love Letters</a>
-        <a href="#" onclick="showPage('quizPage')">Love Quiz</a>
-        <a href="#" onclick="showPage('albumPage')">Memory Album</a>
-        <a href="#" onclick="showPage('videosPage')">Videos</a>
-    </nav>
-
-    <!-- Home Page -->
-    <div id="homePage" class="container hidden">
-        <h1>Ola & Adunni's Love Forever ❤️</h1>
-        <h2>Next Special Events</h2>
-        <div id="countdown"></div>
+    
+    <!-- Surprise Popup (First Time Only) -->
+    <div id="surprisePopup" class="popup">
+        <h2>🎉 Surprise! 🎉</h2>
+        <p>Welcome to our love story, Adunni! 💖</p>
+        <button onclick="closeSurprise()">Aww, I Love It! ❤️</button>
     </div>
-
-    <!-- Love Chat Section -->
-    <div id="chatPage" class="container hidden">
-        <h2>Private Love Chat 💬</h2>
-        <div id="chatbox"></div>
-        <input type="text" id="chatInput" placeholder="Type a message...">
-        <button onclick="sendMessage()">Send ❤️</button>
-    </div>
-
-    <!-- Secret Love Letters Section -->
-    <div id="lettersPage" class="container hidden">
-        <h2>Secret Love Letters 💌</h2>
-        <button onclick="revealLetter()">Open Love Letter</button>
-        <p id="loveLetter" class="hidden"></p>
-    </div>
-
-    <!-- Love Quiz Section -->
-    <div id="quizPage" class="container hidden">
-        <h2>Love Quiz 🎮</h2>
-        <p id="quizQuestion"></p>
-        <input type="text" id="quizInput" placeholder="Enter your answer">
-        <button onclick="checkQuiz()">Submit</button>
-        <p id="quizResult"></p>
-    </div>
-
-    <!-- Memory Album Section -->
-    <div id="albumPage" class="container hidden">
-        <h2>Memory Album 📸</h2>
-        <div class="gallery">
-            <img src="media/images/img1.jpg" alt="Memory 1">
-            <img src="media/images/img2.jpg" alt="Memory 2">
-            <img src="media/images/img3.jpg" alt="Memory 3">
-            <img src="media/images/img4.jpg" alt="Memory 4">
-            <img src="media/images/img5.jpg" alt="Memory 5">
-            <img src="media/images/img6.jpg" alt="Memory 6">
-            <img src="media/images/img7.jpg" alt="Memory 7">
-            <img src="media/images/img8.jpg" alt="Memory 8">
-            <img src="media/images/img9.jpg" alt="Memory 9">
-            <img src="media/images/img10.jpg" alt="Memory 10">
+    
+    <!-- Main Content -->
+    <div id="mainContent" style="display: none;">
+        <nav>
+            <button onclick="showPage('homePage')">Home</button>
+            <button onclick="showPage('galleryPage')">Memory Album</button>
+            <button onclick="showPage('videoPage')">Videos</button>
+            <button onclick="showPage('liveSharePage')">Live Share</button>
+        </nav>
+        
+        <!-- Home Page with Countdown -->
+        <div id="homePage" class="page">
+            <h1>Ola & Adunni's Love Forever ❤️</h1>
+            <h2>Next Special Events</h2>
+            <div id="countdown"></div>
+        </div>
+        
+        <!-- Memory Album -->
+        <div id="galleryPage" class="page" style="display: none;">
+            <h2>Memory Album 📸</h2>
+            <div class="gallery">
+                <img src="media/image1.jpg" alt="Memory 1">
+                <img src="media/image2.jpg" alt="Memory 2">
+                <img src="media/image3.jpg" alt="Memory 3">
+                <img src="media/image4.jpg" alt="Memory 4">
+                <img src="media/image5.jpg" alt="Memory 5">
+            </div>
+        </div>
+        
+        <!-- Videos Section -->
+        <div id="videoPage" class="page" style="display: none;">
+            <h2>Videos 🎥</h2>
+            <video src="media/video1.mp4" autoplay muted loop></video>
+            <video src="media/video2.mp4" autoplay muted loop></video>
+            <video src="media/video3.mp4" autoplay muted loop></video>
+        </div>
+        
+        <!-- Live Sharing Section -->
+        <div id="liveSharePage" class="page" style="display: none;">
+            <h2>Live Sharing 🎬</h2>
+            <button onclick="startScreenShare()">Start Screen Sharing</button>
+            <button onclick="startVoiceChat()">Start Voice Chat</button>
+            <div id="liveVideo"></div>
         </div>
     </div>
-
-    <!-- Love Videos Section -->
-    <div id="videosPage" class="container hidden">
-        <h2>Special Moments 🎥</h2>
-        <div class="video-gallery">
-            <video src="media/videos/video1.mp4" autoplay muted loop playsinline></video>
-            <video src="media/videos/video2.mp4" autoplay muted loop playsinline></video>
-            <video src="media/videos/video3.mp4" autoplay muted loop playsinline></video>
-        </div>
-    </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
