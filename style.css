@@ -1,137 +1,24 @@
-/* General Page Styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    background: linear-gradient(to bottom, #ff99cc, #ff66b2);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+#passwordScreen {
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
-    color: white;
-}
-
-/* Main Content */
-.container {
-    width: 80%;
-    max-width: 700px;
-    margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    color: black;
-    display: none; /* Sections are hidden by default */
-}
-
-/* Navigation Menu */
-nav {
-    background: #ff4081;
-    padding: 15px;
     border-radius: 10px;
-    margin-bottom: 20px;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 15px;
-    display: inline-block;
-}
-nav a:hover {
-    background: white;
-    color: #ff4081;
-    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Countdown */
-#countdown {
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
-    background: #ff4081;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-/* Password Input */
-#passwordInput {
-    padding: 10px;
-    font-size: 16px;
-    width: 60%;
-    border-radius: 8px;
-    border: 2px solid #ff4081;
-    text-align: center;
-}
-
-/* Chat Box */
-#chatbox {
-    width: 90%;
-    max-width: 500px;
-    height: 250px;
-    background: #ffe4e1;
-    border-radius: 8px;
-    padding: 10px;
-    overflow-y: auto;
-    margin: 10px auto;
-}
-
-/* Chat Bubbles */
-.chat-bubble {
-    background: #ff4081;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 80%;
-    margin: 5px;
-    display: inline-block;
-}
-
-/* Buttons */
-button {
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 10px;
-}
-button:hover {
-    background-color: #e60073;
-    transform: scale(1.1);
-}
-
-/* Love Quiz */
-#quizInput {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #d63384;
-    width: 80%;
-    margin: 10px;
-}
-
-/* Image Gallery */
-.gallery img {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    margin: 5px;
-    transition: transform 0.3s;
-}
-.gallery img:hover {
-    transform: scale(1.1);
-}
-
-/* Video Gallery */
-.video-gallery video {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    margin: 10px;
-}
-
-/* Surprise Popup */
-#surprisePopup {
+.popup {
     display: none;
     position: fixed;
     top: 0;
@@ -141,28 +28,42 @@ button:hover {
     background: rgba(0, 0, 0, 0.8);
     color: white;
     text-align: center;
-    padding-top: 200px;
-    z-index: 999;
+    padding-top: 20%;
 }
 
-.hidden {
+nav {
+    background: #ff3385;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+
+nav button {
+    background: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.page {
+    padding: 50px;
     display: none;
 }
 
-/* Floating Hearts */
-.floating-heart {
-    position: absolute;
-    font-size: 25px;
-    animation: floatHeart 5s linear infinite;
+.gallery img {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 10px;
 }
 
-@keyframes floatHeart {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh);
-        opacity: 0;
-    }
+video {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    border-radius: 10px;
 }
